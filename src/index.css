@@ -1,0 +1,244 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pakistan Accumulators Design System - All colors MUST be HSL */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Platform Default Colors (System Admin) & Tenant Override */
+    /* Trust Blue #0D47A1 - Platform default primary color */
+    --primary: 218 95% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 146 100% 29%; /* Battery Green-Dark #009624 - hover states */
+    --primary-glow: 146 70% 55%;
+
+    /* Trust Blue #0D47A1 - navigation bar, strong call-outs */
+    --trust-blue: 218 95% 35%;
+    --trust-blue-foreground: 0 0% 100%;
+
+    /* Energy Yellow #FFEB3B - scan frame outline, warning badges */
+    --energy-yellow: 56 100% 62%;
+    --energy-yellow-foreground: 0 0% 13%;
+
+    /* Page background #FFFFFF */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%; /* Text primary #212121 (87% black) */
+
+    /* Section background #F5F5F5 - cards, side panels */
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 13%;
+    --section-background: 0 0% 96%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    /* Secondary surfaces */
+    --secondary: 0 0% 96%; /* Section background */
+    --secondary-foreground: 0 0% 38%; /* Text secondary #616161 (60% black) */
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 38%;
+
+    --accent: 218 95% 35%; /* Trust Blue for accents */
+    --accent-foreground: 0 0% 100%;
+
+    /* Error #D32F2F - form validation errors */
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 0 0% 89%; /* Light grey for borders */
+    --input: 0 0% 96%;
+    --ring: 146 100% 39%; /* Battery Green focus ring */
+
+    /* Border radius - 8px for cards, 6px for inputs */
+    --radius: 0.5rem;
+
+    /* Status colors using brand guidelines */
+    --success: 122 39% 49%; /* Success Green #1B5E20 */
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 55%; /* Warning #F9A825 */
+    --warning-foreground: 0 0% 13%;
+    --info: 218 95% 35%; /* Trust Blue for info */
+    --info-foreground: 0 0% 100%;
+
+    /* Brand-specific colors for different battery brands */
+    --brand-volta: 146 100% 39%; /* Battery Green */
+    --brand-osaka: 15 85% 55%;
+    --brand-fujika: 265 85% 55%;
+    --brand-saga: 135 85% 45%;
+
+    /* Gradients using brand colors */
+    --gradient-primary: linear-gradient(135deg, hsl(146, 100%, 39%), hsl(146, 70%, 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(218, 95%, 35%), hsl(146, 100%, 39%));
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(0, 0%, 96%));
+    
+    /* Shadows with brand colors - very light as per guidelines */
+    --shadow-elegant: 0 2px 8px -2px hsl(146 100% 39% / 0.1); /* 2dp for cards */
+    --shadow-glow: 0 4px 16px -4px hsl(146 70% 55% / 0.2); /* 4dp for modals */
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 13%;
+    --sidebar-primary: 218 95% 35%; /* Trust Blue */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 13%;
+    --sidebar-border: 0 0% 89%;
+    --sidebar-ring: 146 100% 39%; /* Battery Green */
+  }
+
+  .dark {
+    /* Dark mode maintaining brand identity */
+    --background: 0 0% 7%; /* Dark background */
+    --foreground: 0 0% 96%; /* Light text */
+
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+    --section-background: 0 0% 9%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+
+    /* Keep brand colors consistent in dark mode */
+    --primary: 146 100% 39%; /* Battery Green stays the same */
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 146 100% 29%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 218 95% 35%; /* Trust Blue for dark mode */
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 4 90% 58%; /* Keep error color consistent */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 14%;
+    --ring: 146 100% 39%; /* Battery Green focus ring */
+
+    /* Dark mode sidebar */
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 218 95% 35%; /* Trust Blue */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 146 100% 39%; /* Battery Green */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Modern Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Loading Animation */
+  .loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus ring improvements */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
